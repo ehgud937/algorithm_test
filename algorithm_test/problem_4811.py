@@ -1,14 +1,15 @@
-cnt = 0
+dp  = [[0] * 31 for _ in range(31)]
+print(dp)
+for i in range(1, 31):
+    dp[0][i] = 1
 
-def f(0, n):
-    global cnt
-    if i == n:
-        cnt += 1
+for i in range(1, 31):
+    for j in range(i, 31):
+        dp[i][j] = dp[i-1][j] + dp[i][j-1]
+
+while 1:
+    n = int(input())
     
-    else:
-        
-
-
-n = int(input())
-
-p = [1] * n + [-1] * n
+    if n == 0:
+        break
+    print(dp[n][n])
