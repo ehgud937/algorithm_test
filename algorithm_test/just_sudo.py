@@ -83,26 +83,120 @@ import itertools
 # print(cnt)
 # print(fcnt)
 
+# v = int(input()) # 컴퓨터 수
+# e = int(input()) # 노드 수
+# cnt = 0
 
-import itertools
+# def DFS(s, v):
+#     global cnt
+#     visited = [0] * (v+1)
+#     stack = []
+#     visited[s] = 1
+#     visit = s
+
+#     while True:
+#         for computer in computer_list[visit]:
+#             if visited[computer] == 0:
+#                 stack.append(visit)
+#                 visit = computer
+#                 visited[computer] = 1
+#                 cnt += 1
+#                 break
+#         else:
+#             if stack:
+#                 visit = stack.pop()
+#             else:
+#                 break
+                
 
 
-def find_min_sum(matrix, N):
-    min_sum = float('inf')
+# computer_list = [[] for i in range(v+1)]
 
-    for perm in itertools.permutations(range(N)):
-        current_sum = sum(matrix[i][perm[i]] for i in range(N))
-        min_sum = min(min_sum, current_sum)
+# for _ in range(e):
+#     v1, v2 = map(int, input().split())
 
-    return min_sum
+#     computer_list[v1].append(v2)
+#     computer_list[v2].append(v1)
+
+# DFS(1, v)
+# print(cnt)
 
 
-T = int(input())
 
-for t in range(1, T + 1):
-    N = int(input())
-    matrix = [list(map(int, input().split())) for _ in range(N)]
+# BFS
 
-    result = find_min_sum(matrix, N)
+# from collections import deque
 
-    print(f"#{t} {result}")
+# def BFS(list, start, visited):
+#     queue = deque([start])
+
+#     visited[start] = True
+#     # 큐가 빌 때까지
+#     while queue:
+#         # 큐에서 하나의 원소를 뽑아서 출력
+#         v = queue.popleft()
+#         print(v, end=' ')
+#         # 아직 방문하지 않은 인접한 원소들은 큐에 삽입
+#         for i in list[v]:
+#             if not visited[i]:
+#                 queue.append(i)
+#                 visited[i] = True
+
+# max_item = int(input())
+# node = int(input())
+# visited = [False] * (max_item + 1)
+# graph = [[] for _ in range(max_item + 1)]
+
+# print(graph)
+# for _ in range(node):
+#     v1, v2 = map(int, input().split())
+
+#     graph[v1].append(v2)
+#     graph[v2].append(v1)
+
+# BFS(graph, 1, visited)
+
+# from collections import deque
+
+# def bfs(maze):
+#     # 시작점 찾기
+#     start = None
+#     for i in range(n):
+#         for j in range(m):
+#             if maze[i][j] == 2:
+#                 start = (i, j)
+#                 break
+    
+#     q = deque([start])
+#     arr_visited[start[0]][start[1]] = 1
+#     # 움직일 위치
+#     direction = [(0,1), (1,0), (-1,0), (0,-1)]
+
+#     while q:
+#         x, y = q.popleft()
+#         if maze[x][y] == 3:
+#             # 시작점과, 도착점을 빼주기 -> 중간 통로 길이만 구하는 경우
+#             return arr_visited[x][y] -1 -1
+        
+#         for di, dj in direction:
+#             nx = x + di
+#             ny = y + dj
+            
+#             if 0<= nx < n and 0 <= ny < m and arr_visited[nx][ny] == 0 and maze[nx][ny] != 1:
+#                 arr_visited[nx][ny] = arr_visited[x][y] + 1
+#                 q.append([nx, ny])
+#     return -1   # 못 찾은 경우
+        
+
+
+# t = int(input())
+# for tc in range(1, t+1):
+#     n, m = map(int, input().split())
+#     maze = [list(map(int, input())) for _ in range(n)]
+#     arr_visited = [[0] * m for _ in range(n)]
+    
+#     print(bfs(maze))
+    
+arr =[1, 2, 3]
+print(arr)
+print(arr[::-1])
