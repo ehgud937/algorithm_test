@@ -1,0 +1,25 @@
+t = int(input())
+
+for tc in range(1, t+1):
+    x1, y1, p1, q1 = map(int, input().split())
+    x2, y2, p2, q2 = map(int, input().split())
+
+    overlap_x = max(x1, x2)
+    overlap_y = max(y1, y2)
+    overlap_p = min(p1, p2)
+    overlap_q = min(q1, q2)
+    
+    result = 0
+
+    if overlap_x < overlap_p and overlap_y < overlap_q:
+        result = 1
+    elif overlap_x == overlap_p and overlap_y < overlap_q:
+        result = 2
+    elif overlap_x < overlap_p and overlap_y == overlap_q:
+        result = 2
+    elif overlap_x == overlap_p and overlap_y == overlap_q:
+        result = 3
+    else:
+        result = 4
+    
+    print(f'#{tc} {result}')
